@@ -58,13 +58,15 @@ class Basics extends Phaser.Scene {
             tweens: [
                 {
                     x: w - 64,
-                    angle: 90,
                     duration: 500,
                     ease: 'Bounce.easeOut',
+                }, 
+                {
+                    angle: 90,
+                    duration: 200
                 },
                 {
                     y: h - 64,
-                    angle: 180,
                     duration: 1000,
                     ease: 'Sine.easeOut',
                     scale: {
@@ -73,19 +75,29 @@ class Basics extends Phaser.Scene {
                     }
                 },
                 {
+                    angle: 180,
+                    duration: 200
+                },
+                {
                     x: 64,
-                    angle: -90,
                     duration: 1000,
                 },
                 {
+                    angle: 270,
+                    duration: 200
+                },
+                {
                     y: 64,
-                    angle: 0,
                     duration: 1000,
                     scale: {
                         from: 2.25,
                         to: 1
                     }
-                }
+                },
+                {
+                    angle: 0,
+                    duration: 200
+                },
             ]
         })
 
@@ -94,6 +106,7 @@ class Basics extends Phaser.Scene {
 
         // add mouse input listener to start tween chain
         this.input.on('pointerdown', () => {
+            verygoodpear.setScale(1)
             verygoodpear.setPosition(64,64)
             verygoodpear.setAngle(0)
             pearTweenChain.restart()
